@@ -1,3 +1,9 @@
 <strings>
     <string id="AppName">Rammstein_Watchface</string>
+    <string id="ColorRed">Red</string>
+    <string id="ColorWhite">White</string>
+    <string id="LogoColorTitle">Rammstein Logo Color</string>
+    <string id="TimeColorTitle">Time Color</string>
+    <string id="DateColorTitle">Date Color</string>
+    <string id="DisplayDateTitle">Display Date</string>
 </strings>
