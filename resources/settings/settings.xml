@@ -1,0 +1,23 @@
+<settings>
+     <setting propertyKey="@Properties.LogoColor" title="@Strings.LogoColorTitle">
+        <settingConfig type="list">
+            <listEntry value="0xFF0000">@Strings.ColorRed</listEntry>
+            <listEntry value="0xFFFFFF">@Strings.ColorWhite</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.TimeColor" title="@Strings.TimeColorTitle">
+        <settingConfig type="list">
+            <listEntry value="0xFF0000">@Strings.ColorRed</listEntry>
+            <listEntry value="0xFFFFFF">@Strings.ColorWhite</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.DateColor" title="@Strings.DateColorTitle">
+        <settingConfig type="list">
+            <listEntry value="0xFF0000">@Strings.ColorRed</listEntry>
+            <listEntry value="0xFFFFFF">@Strings.ColorWhite</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.DisplayDate" title="@Strings.DisplayDateTitle">
+        <settingConfig type="boolean" />
+    </setting>
+</settings>
