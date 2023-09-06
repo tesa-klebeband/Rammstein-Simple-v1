@@ -18,8 +18,7 @@ class Rammstein_WatchfaceApp extends Application.AppBase {
         return [ new Rammstein_WatchfaceView() ] as Array<Views or InputDelegates>;
     }
 
-}
-
-function getApp() as Rammstein_WatchfaceApp {
-    return Application.getApp() as Rammstein_WatchfaceApp;
+    function onSettingsChanged() as Void {
+        settingsChanged = true;
+    }
 }
