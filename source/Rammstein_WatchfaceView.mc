@@ -86,10 +86,10 @@ class Rammstein_WatchfaceView extends WatchUi.WatchFace {
     }
 
     function loadResources() as Void {
-        logoColor = Application.getApp().getProperty("LogoColor") as Number;
-        timeColor = Application.getApp().getProperty("TimeColor") as Number;
-        dateColor = Application.getApp().getProperty("DateColor") as Number;
-        displayDate = Application.getApp().getProperty("DisplayDate") as Boolean;
+        logoColor = Application.Properties.getValue("LogoColor") as Number;
+        timeColor = Application.Properties.getValue("TimeColor") as Number;
+        dateColor = Application.Properties.getValue("DateColor") as Number;
+        displayDate = Application.Properties.getValue("DisplayDate") as Boolean;
 
         switch(width) {
             case 208:
