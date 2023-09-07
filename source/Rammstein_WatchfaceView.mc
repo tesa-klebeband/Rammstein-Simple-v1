@@ -6,6 +6,42 @@ import Toybox.ActivityMonitor;
 using Toybox.Time;
 using Toybox.Time.Gregorian;
 
+var fontResources = {
+    208 => Rez.Fonts.Font208,
+    218 => Rez.Fonts.Font218,        
+    240 => Rez.Fonts.Font240,
+    260 => Rez.Fonts.Font260,
+    280 => Rez.Fonts.Font280,
+    360 => Rez.Fonts.Font360,
+    390 => Rez.Fonts.Font390,
+    416 => Rez.Fonts.Font416,
+    454 => Rez.Fonts.Font454
+};
+
+var logoResourcesRed = {
+    208 => Rez.Drawables.Logo208,
+    218 => Rez.Drawables.Logo218,        
+    240 => Rez.Drawables.Logo240,
+    260 => Rez.Drawables.Logo260,
+    280 => Rez.Drawables.Logo280,
+    360 => Rez.Drawables.Logo360,
+    390 => Rez.Drawables.Logo390,
+    416 => Rez.Drawables.Logo416,
+    454 => Rez.Drawables.Logo454
+};
+
+var logoResourcesWhite = {
+    208 => Rez.Drawables.Logo208w,
+    218 => Rez.Drawables.Logo218w,        
+    240 => Rez.Drawables.Logo240w,
+    260 => Rez.Drawables.Logo260w,
+    280 => Rez.Drawables.Logo280w,
+    360 => Rez.Drawables.Logo360w,
+    390 => Rez.Drawables.Logo390w,
+    416 => Rez.Drawables.Logo416w,
+    454 => Rez.Drawables.Logo454w
+};
+
 var logo;
 var font;
 var width;
@@ -91,110 +127,12 @@ class Rammstein_WatchfaceView extends WatchUi.WatchFace {
         dateColor = Application.Properties.getValue("DateColor") as Number;
         displayDate = Application.Properties.getValue("DisplayDate") as Boolean;
 
-        switch(width) {
-            case 208:
-                font = Toybox.WatchUi.loadResource(Rez.Fonts.Font208);
-                break;
-            case 218:
-                font = Toybox.WatchUi.loadResource(Rez.Fonts.Font218);
-                break;
-            case 240:
-                font = Toybox.WatchUi.loadResource(Rez.Fonts.Font240);
-                break;
-            case 260:
-                font = Toybox.WatchUi.loadResource(Rez.Fonts.Font260);
-                break;
-            case 280:
-                font = Toybox.WatchUi.loadResource(Rez.Fonts.Font280);
-                break;
-            case 360:
-                font = Toybox.WatchUi.loadResource(Rez.Fonts.Font360);
-                break;
-            case 390:
-                font = Toybox.WatchUi.loadResource(Rez.Fonts.Font390);
-                break;
-            case 416:
-                font = Toybox.WatchUi.loadResource(Rez.Fonts.Font416);
-                break;
-            case 454:
-                font = Toybox.WatchUi.loadResource(Rez.Fonts.Font454);
-                break;
-            default:
-                font = Toybox.WatchUi.loadResource(Rez.Fonts.Font240);
-                break;
-        }
+        font = Toybox.WatchUi.loadResource(fontResources.get(width));
 
-        switch(logoColor) {
-            case 0xFF0000: {
-                switch(width) {
-                    case 208:
-                        logo = Toybox.WatchUi.loadResource(Rez.Drawables.Logo208);
-                        break;
-                    case 218:
-                        logo = Toybox.WatchUi.loadResource(Rez.Drawables.Logo218);
-                        break;
-                    case 240:
-                        logo = Toybox.WatchUi.loadResource(Rez.Drawables.Logo240);
-                        break;
-                    case 260:
-                        logo = Toybox.WatchUi.loadResource(Rez.Drawables.Logo260);
-                        break;
-                    case 280:
-                        logo = Toybox.WatchUi.loadResource(Rez.Drawables.Logo280);
-                        break;
-                    case 360:
-                        logo = Toybox.WatchUi.loadResource(Rez.Drawables.Logo360);
-                        break;
-                    case 390:
-                        logo = Toybox.WatchUi.loadResource(Rez.Drawables.Logo390);
-                        break;
-                    case 416:
-                        logo = Toybox.WatchUi.loadResource(Rez.Drawables.Logo416);
-                        break;
-                    case 454:
-                        logo = Toybox.WatchUi.loadResource(Rez.Drawables.Logo454);
-                        break;
-                    default:
-                        logo = Toybox.WatchUi.loadResource(Rez.Drawables.Logo240);
-                        break;
-                }
-                break;
-            }
-            case 0xFFFFFF: {
-                switch(width) {
-                    case 208:
-                        logo = Toybox.WatchUi.loadResource(Rez.Drawables.Logo208w);
-                        break;
-                    case 218:
-                        logo = Toybox.WatchUi.loadResource(Rez.Drawables.Logo218w);
-                        break;
-                    case 240:
-                        logo = Toybox.WatchUi.loadResource(Rez.Drawables.Logo240w);
-                        break;
-                    case 260:
-                        logo = Toybox.WatchUi.loadResource(Rez.Drawables.Logo260w);
-                        break;
-                    case 280:
-                        logo = Toybox.WatchUi.loadResource(Rez.Drawables.Logo280w);
-                        break;
-                    case 360:
-                        logo = Toybox.WatchUi.loadResource(Rez.Drawables.Logo360w);
-                        break;
-                    case 390:
-                        logo = Toybox.WatchUi.loadResource(Rez.Drawables.Logo390w);
-                        break;
-                    case 416:
-                        logo = Toybox.WatchUi.loadResource(Rez.Drawables.Logo416w);
-                        break;
-                    case 454:
-                        logo = Toybox.WatchUi.loadResource(Rez.Drawables.Logo454w);
-                        break;
-                    default:
-                        logo = Toybox.WatchUi.loadResource(Rez.Drawables.Logo240w);
-                        break;
-                }
-                break;
-            }
+        if (logoColor == 0xFF0000) {
+            logo = Toybox.WatchUi.loadResource(logoResourcesRed.get(width));
+        } else {
+            logo = Toybox.WatchUi.loadResource(logoResourcesWhite.get(width));
         }
     }
 
