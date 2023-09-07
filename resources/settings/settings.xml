@@ -11,13 +11,18 @@
             <listEntry value="0xFFFFFF">@Strings.ColorWhite</listEntry>
         </settingConfig>
     </setting>
-    <setting propertyKey="@Properties.DateColor" title="@Strings.DateColorTitle">
+    <setting propertyKey="@Properties.Field0Color" title="@Strings.Field0ColorTitle">
         <settingConfig type="list">
             <listEntry value="0xFF0000">@Strings.ColorRed</listEntry>
             <listEntry value="0xFFFFFF">@Strings.ColorWhite</listEntry>
         </settingConfig>
     </setting>
-    <setting propertyKey="@Properties.DisplayDate" title="@Strings.DisplayDateTitle">
-        <settingConfig type="boolean" />
+    <setting propertyKey="@Properties.Field0" title="@Strings.Field0Title">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.Date</listEntry>
+            <listEntry value="1">@Strings.Steps</listEntry>
+            <listEntry value="2">@Strings.HR</listEntry>
+            <listEntry value="3">@Strings.Nothing</listEntry>
+        </settingConfig>
     </setting>
 </settings>
