@@ -49,8 +49,8 @@ var height;
 var settingsChanged;
 var logoColor;
 var timeColor;
-var dateColor;
-var displayDate;
+var field0Color;
+var field0;
 
 class Rammstein_WatchfaceView extends WatchUi.WatchFace {
 
@@ -94,21 +94,35 @@ class Rammstein_WatchfaceView extends WatchUi.WatchFace {
             Graphics.TEXT_JUSTIFY_CENTER
         );
 
-        if (displayDate) {
-            var dateString = today.day.format("%02d") + "." + today.month.format("%02d") + ".";
-            if (dateColor == 0xFFFFFF) {
-                dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
-            } else {
-                dc.setColor(Graphics.COLOR_RED, Graphics.COLOR_BLACK);
-            }
-            dc.drawText(
-                width / 2,
-                height - (height / 6),
-                Graphics.FONT_XTINY,
-                dateString,
-                Graphics.TEXT_JUSTIFY_CENTER
-            );   
+        var field0String = "";
+
+        if (field0Color == 0xFFFFFF) {
+            dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
+        } else {
+            dc.setColor(Graphics.COLOR_RED, Graphics.COLOR_BLACK);
         }
+
+        switch (field0) {
+            case 0: {
+                field0String = today.day.format("%02d") + "." + today.month.format("%02d") + ".";
+                break;
+            }
+            case 1: {
+                field0String = ActivityMonitor.getInfo().steps.format("%d");
+                break;
+            }
+            case 2: {
+                var heartRate = Activity.getActivityInfo().currentHeartRate;
+                if (heartRate != null) {
+                    field0String = heartRate.format("%d");
+                } else {
+                    field0String = "--";
+                }
+                break;
+            }
+        }
+
+        dc.drawText(width / 2, height - (height / 6), Graphics.FONT_XTINY, field0String, Graphics.TEXT_JUSTIFY_CENTER);
     }
 
     function onHide() as Void {
@@ -124,8 +138,8 @@ class Rammstein_WatchfaceView extends WatchUi.WatchFace {
     function loadResources() as Void {
         logoColor = Application.Properties.getValue("LogoColor") as Number;
         timeColor = Application.Properties.getValue("TimeColor") as Number;
-        dateColor = Application.Properties.getValue("DateColor") as Number;
-        displayDate = Application.Properties.getValue("DisplayDate") as Boolean;
+        field0Color = Application.Properties.getValue("Field0Color") as Number;
+        field0 = Application.Properties.getValue("Field0") as Boolean;
 
         font = Toybox.WatchUi.loadResource(fontResources.get(width));
 
