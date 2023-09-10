@@ -6,6 +6,8 @@ import Toybox.ActivityMonitor;
 using Toybox.Time;
 using Toybox.Time.Gregorian;
 
+const NUM_DATAFIELDS = 4;
+
 var fontResources = {
     208 => Rez.Fonts.Font208,
     218 => Rez.Fonts.Font218,        
@@ -49,8 +51,11 @@ var height;
 var settingsChanged;
 var logoColor;
 var timeColor;
-var field0Color;
-var field0;
+
+var dataFieldPosX;
+var dataFieldPosY;
+var dataFieldColor as Array<Number> = new [NUM_DATAFIELDS];
+var dataField as Array<Number> = new [NUM_DATAFIELDS];
 
 class Rammstein_WatchfaceView extends WatchUi.WatchFace {
 
@@ -76,7 +81,7 @@ class Rammstein_WatchfaceView extends WatchUi.WatchFace {
             loadResources();
         }
         
-        dc.drawBitmap((width / 2) - (logo.getWidth() / 2), logo.getHeight() / 4, logo);
+        dc.drawBitmap((width / 2) - (logo.getWidth() / 2), logo.getHeight() / 3.5, logo);
 
         var today = Gregorian.info(Time.now(), Time.FORMAT_SHORT);
         var timeString = today.hour.format("%02d") + ":" + today.min.format("%02d");
@@ -94,35 +99,40 @@ class Rammstein_WatchfaceView extends WatchUi.WatchFace {
             Graphics.TEXT_JUSTIFY_CENTER
         );
 
-        var field0String = "";
+        for (var i = 0; i < NUM_DATAFIELDS; i++) {
+            var dataFieldString = "";
 
-        if (field0Color == 0xFFFFFF) {
-            dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
-        } else {
-            dc.setColor(Graphics.COLOR_RED, Graphics.COLOR_BLACK);
-        }
+            if (dataFieldColor[i] == 0xFFFFFF) {
+                dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
+            } else {
+                dc.setColor(Graphics.COLOR_RED, Graphics.COLOR_BLACK);
+            }
 
-        switch (field0) {
-            case 0: {
-                field0String = today.day.format("%02d") + "." + today.month.format("%02d") + ".";
-                break;
-            }
-            case 1: {
-                field0String = ActivityMonitor.getInfo().steps.format("%d");
-                break;
-            }
-            case 2: {
-                var heartRate = Activity.getActivityInfo().currentHeartRate;
-                if (heartRate != null) {
-                    field0String = heartRate.format("%d");
-                } else {
-                    field0String = "--";
+            switch (dataField[i]) {
+                case 0: {
+                    dataFieldString = today.day.format("%02d") + "." + today.month.format("%02d") + ".";
+                    break;
                 }
-                break;
+                case 1: {
+                    dataFieldString = ActivityMonitor.getInfo().steps.format("%d");
+                    break;
+                }
+                case 2: {
+                    var heartRate = Activity.getActivityInfo().currentHeartRate;
+                    if (heartRate != null) {
+                        dataFieldString = heartRate.format("%d");
+                    } else {
+                        dataFieldString = "--";
+                    }
+                    break;
+                }
+                case 3: {
+                    dataFieldString = (System.getSystemStats().battery+.5).format("%d") + "%";
+                }
             }
-        }
 
-        dc.drawText(width / 2, height - (height / 6), Graphics.FONT_XTINY, field0String, Graphics.TEXT_JUSTIFY_CENTER);
+            dc.drawText(dataFieldPosX[i], dataFieldPosY[i], Graphics.FONT_SMALL, dataFieldString, Graphics.TEXT_JUSTIFY_CENTER);
+        }
     }
 
     function onHide() as Void {
@@ -138,8 +148,16 @@ class Rammstein_WatchfaceView extends WatchUi.WatchFace {
     function loadResources() as Void {
         logoColor = Application.Properties.getValue("LogoColor") as Number;
         timeColor = Application.Properties.getValue("TimeColor") as Number;
-        field0Color = Application.Properties.getValue("Field0Color") as Number;
-        field0 = Application.Properties.getValue("Field0") as Boolean;
+        dataFieldColor[0] = Application.Properties.getValue("CenterFieldColor") as Number;
+        dataField[0] = Application.Properties.getValue("CenterField") as Number;
+        dataFieldColor[1] = Application.Properties.getValue("LeftFieldColor") as Number;
+        dataField[1] = Application.Properties.getValue("LeftField") as Number;
+        dataFieldColor[2] = Application.Properties.getValue("RightFieldColor") as Number;
+        dataField[2] = Application.Properties.getValue("RightField") as Number;
+        dataFieldColor[3] = Application.Properties.getValue("TopFieldColor") as Number;
+        dataField[3] = Application.Properties.getValue("TopField") as Number;
+        dataFieldPosX = [width / 2, width / 5, width - (width / 5), width / 2];
+        dataFieldPosY = [height - (height / 6), (height / 2) + (height / 20), (height / 2) + (height / 20), 0];
 
         font = Toybox.WatchUi.loadResource(fontResources.get(width));
 
