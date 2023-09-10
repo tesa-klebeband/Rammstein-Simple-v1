@@ -6,7 +6,7 @@ import Toybox.ActivityMonitor;
 using Toybox.Time;
 using Toybox.Time.Gregorian;
 
-const NUM_DATAFIELDS = 4;
+const NUM_DATAFIELDS = 3;
 
 var fontResources = {
     208 => Rez.Fonts.Font208,
@@ -81,7 +81,7 @@ class Rammstein_WatchfaceView extends WatchUi.WatchFace {
             loadResources();
         }
         
-        dc.drawBitmap((width / 2) - (logo.getWidth() / 2), logo.getHeight() / 3.5, logo);
+        dc.drawBitmap((width / 2) - (logo.getWidth() / 2), logo.getHeight() / 4, logo);
 
         var today = Gregorian.info(Time.now(), Time.FORMAT_SHORT);
         var timeString = today.hour.format("%02d") + ":" + today.min.format("%02d");
@@ -154,10 +154,8 @@ class Rammstein_WatchfaceView extends WatchUi.WatchFace {
         dataField[1] = Application.Properties.getValue("LeftField") as Number;
         dataFieldColor[2] = Application.Properties.getValue("RightFieldColor") as Number;
         dataField[2] = Application.Properties.getValue("RightField") as Number;
-        dataFieldColor[3] = Application.Properties.getValue("TopFieldColor") as Number;
-        dataField[3] = Application.Properties.getValue("TopField") as Number;
-        dataFieldPosX = [width / 2, width / 5, width - (width / 5), width / 2];
-        dataFieldPosY = [height - (height / 6), (height / 2) + (height / 20), (height / 2) + (height / 20), height / (height / 2)];
+        dataFieldPosX = [width / 2, width / 5, width - (width / 5)];
+        dataFieldPosY = [height - (height / 6), (height / 2) + (height / 20), (height / 2) + (height / 20)];
 
         font = Toybox.WatchUi.loadResource(fontResources.get(width));
 

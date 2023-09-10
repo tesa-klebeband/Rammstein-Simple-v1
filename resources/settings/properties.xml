@@ -7,6 +7,4 @@
     <property id="LeftField" type="number">1</property>
     <property id="RightFieldColor" type="number">0xFFFFFF</property>
     <property id="RightField" type="number">2</property>
-    <property id="TopFieldColor" type="number">0xFFFFFF</property>
-    <property id="TopField" type="number">3</property>
 </properties>

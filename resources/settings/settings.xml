@@ -56,19 +56,4 @@
             <listEntry value="4">@Strings.Nothing</listEntry>
         </settingConfig>
     </setting>
-    <setting propertyKey="@Properties.TopFieldColor" title="@Strings.TopFieldColorTitle">
-        <settingConfig type="list">
-            <listEntry value="0xFF0000">@Strings.ColorRed</listEntry>
-            <listEntry value="0xFFFFFF">@Strings.ColorWhite</listEntry>
-        </settingConfig>
-    </setting>
-    <setting propertyKey="@Properties.TopField" title="@Strings.TopFieldTitle">
-        <settingConfig type="list">
-            <listEntry value="0">@Strings.Date</listEntry>
-            <listEntry value="1">@Strings.Steps</listEntry>
-            <listEntry value="2">@Strings.HR</listEntry>
-            <listEntry value="3">@Strings.Battery</listEntry>
-            <listEntry value="4">@Strings.Nothing</listEntry>
-        </settingConfig>
-    </setting>
 </settings>
