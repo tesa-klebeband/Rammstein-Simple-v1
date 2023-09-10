@@ -11,18 +11,64 @@
             <listEntry value="0xFFFFFF">@Strings.ColorWhite</listEntry>
         </settingConfig>
     </setting>
-    <setting propertyKey="@Properties.Field0Color" title="@Strings.Field0ColorTitle">
+    <setting propertyKey="@Properties.CenterFieldColor" title="@Strings.CenterFieldColorTitle">
         <settingConfig type="list">
             <listEntry value="0xFF0000">@Strings.ColorRed</listEntry>
             <listEntry value="0xFFFFFF">@Strings.ColorWhite</listEntry>
         </settingConfig>
     </setting>
-    <setting propertyKey="@Properties.Field0" title="@Strings.Field0Title">
+    <setting propertyKey="@Properties.CenterField" title="@Strings.CenterFieldTitle">
         <settingConfig type="list">
             <listEntry value="0">@Strings.Date</listEntry>
             <listEntry value="1">@Strings.Steps</listEntry>
             <listEntry value="2">@Strings.HR</listEntry>
-            <listEntry value="3">@Strings.Nothing</listEntry>
+            <listEntry value="3">@Strings.Battery</listEntry>
+            <listEntry value="4">@Strings.Nothing</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.LeftFieldColor" title="@Strings.LeftFieldColorTitle">
+        <settingConfig type="list">
+            <listEntry value="0xFF0000">@Strings.ColorRed</listEntry>
+            <listEntry value="0xFFFFFF">@Strings.ColorWhite</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.LeftField" title="@Strings.LeftFieldTitle">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.Date</listEntry>
+            <listEntry value="1">@Strings.Steps</listEntry>
+            <listEntry value="2">@Strings.HR</listEntry>
+            <listEntry value="3">@Strings.Battery</listEntry>
+            <listEntry value="4">@Strings.Nothing</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.RightFieldColor" title="@Strings.RightFieldColorTitle">
+        <settingConfig type="list">
+            <listEntry value="0xFF0000">@Strings.ColorRed</listEntry>
+            <listEntry value="0xFFFFFF">@Strings.ColorWhite</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.RightField" title="@Strings.RightFieldTitle">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.Date</listEntry>
+            <listEntry value="1">@Strings.Steps</listEntry>
+            <listEntry value="2">@Strings.HR</listEntry>
+            <listEntry value="3">@Strings.Battery</listEntry>
+            <listEntry value="4">@Strings.Nothing</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.TopFieldColor" title="@Strings.TopFieldColorTitle">
+        <settingConfig type="list">
+            <listEntry value="0xFF0000">@Strings.ColorRed</listEntry>
+            <listEntry value="0xFFFFFF">@Strings.ColorWhite</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.TopField" title="@Strings.TopFieldTitle">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.Date</listEntry>
+            <listEntry value="1">@Strings.Steps</listEntry>
+            <listEntry value="2">@Strings.HR</listEntry>
+            <listEntry value="3">@Strings.Battery</listEntry>
+            <listEntry value="4">@Strings.Nothing</listEntry>
         </settingConfig>
     </setting>
 </settings>

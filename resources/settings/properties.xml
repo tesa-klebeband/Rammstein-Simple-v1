@@ -1,6 +1,12 @@
 <properties>
     <property id="LogoColor" type="number">0xFF0000</property>
     <property id="TimeColor" type="number">0xFFFFFF</property>
-    <property id="Field0Color" type="number">0xFFFFFF</property>
-    <property id="Field0" type="number">1</property>
+    <property id="CenterFieldColor" type="number">0xFFFFFF</property>
+    <property id="CenterField" type="number">0</property>
+    <property id="LeftFieldColor" type="number">0xFFFFFF</property>
+    <property id="LeftField" type="number">1</property>
+    <property id="RightFieldColor" type="number">0xFFFFFF</property>
+    <property id="RightField" type="number">2</property>
+    <property id="TopFieldColor" type="number">0xFFFFFF</property>
+    <property id="TopField" type="number">3</property>
 </properties>

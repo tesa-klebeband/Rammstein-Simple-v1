@@ -5,9 +5,16 @@
     <string id="Date">Date</string>
     <string id="Steps">Steps</string>
     <string id="HR">Heart Rate</string>
+    <string id="Battery">Battery</string>
     <string id="Nothing">Nothing</string>
     <string id="LogoColorTitle">Rammstein Logo Color</string>
     <string id="TimeColorTitle">Time Color</string>
-    <string id="Field0ColorTitle">Multi Purpose Field Color</string>
-    <string id="Field0Title">Multi Purpose Field</string>
+    <string id="CenterFieldColorTitle">Center Field Color</string>
+    <string id="CenterFieldTitle">Center Field</string>
+    <string id="LeftFieldColorTitle">Left Field Color</string>
+    <string id="LeftFieldTitle">Left Field</string>
+    <string id="RightFieldColorTitle">Right Field Color</string>
+    <string id="RightFieldTitle">Right Field</string>
+    <string id="TopFieldColorTitle">Right Field Color</string>
+    <string id="TopFieldTitle">Right Field</string>
 </strings>
