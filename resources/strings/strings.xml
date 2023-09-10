@@ -15,4 +15,6 @@
     <string id="LeftFieldTitle">Left Field</string>
     <string id="RightFieldColorTitle">Right Field Color</string>
     <string id="RightFieldTitle">Right Field</string>
+    <string id="TopFieldColorTitle">Right Field Color</string>
+    <string id="TopFieldTitle">Right Field</string>
 </strings>
