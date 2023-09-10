@@ -157,7 +157,7 @@ class Rammstein_WatchfaceView extends WatchUi.WatchFace {
         dataFieldColor[3] = Application.Properties.getValue("TopFieldColor") as Number;
         dataField[3] = Application.Properties.getValue("TopField") as Number;
         dataFieldPosX = [width / 2, width / 5, width - (width / 5), width / 2];
-        dataFieldPosY = [height - (height / 6), (height / 2) + (height / 20), (height / 2) + (height / 20), 0];
+        dataFieldPosY = [height - (height / 6), (height / 2) + (height / 20), (height / 2) + (height / 20), height / (height / 2)];
 
         font = Toybox.WatchUi.loadResource(fontResources.get(width));
 
