@@ -81,7 +81,7 @@ class Rammstein_WatchfaceView extends WatchUi.WatchFace {
             loadResources();
         }
         
-        dc.drawBitmap((width / 2) - (logo.getWidth() / 2), logo.getHeight() / 4, logo);
+        dc.drawBitmap((width / 2) - (logo.getWidth() / 2), logo.getHeight() * 0.25, logo);
 
         var today = Gregorian.info(Time.now(), Time.FORMAT_SHORT);
         var timeString = today.hour.format("%02d") + ":" + today.min.format("%02d");
@@ -93,7 +93,7 @@ class Rammstein_WatchfaceView extends WatchUi.WatchFace {
         }
         dc.drawText(
             width / 2,
-            height - (height / 3),
+            height * 0.67,
             font,
             timeString,
             Graphics.TEXT_JUSTIFY_CENTER
@@ -154,15 +154,15 @@ class Rammstein_WatchfaceView extends WatchUi.WatchFace {
         dataField[1] = Application.Properties.getValue("LeftField") as Number;
         dataFieldColor[2] = Application.Properties.getValue("RightFieldColor") as Number;
         dataField[2] = Application.Properties.getValue("RightField") as Number;
-        dataFieldPosX = [width / 2, width / 5, width - (width / 5)];
-        dataFieldPosY = [height - (height / 6), (height / 2) + (height / 20), (height / 2) + (height / 20)];
+        dataFieldPosX = [width / 2, width * 0.17, width * 0.83];
+        dataFieldPosY = [height * 0.83, height * 0.54, height * 0.54];
 
-        font = Toybox.WatchUi.loadResource(fontResources.get(width));
+        font = Toybox.WatchUi.loadResource(fontResources.get(height));
 
         if (logoColor == 0xFF0000) {
-            logo = Toybox.WatchUi.loadResource(logoResourcesRed.get(width));
+            logo = Toybox.WatchUi.loadResource(logoResourcesRed.get(height));
         } else {
-            logo = Toybox.WatchUi.loadResource(logoResourcesWhite.get(width));
+            logo = Toybox.WatchUi.loadResource(logoResourcesWhite.get(height));
         }
     }
 
